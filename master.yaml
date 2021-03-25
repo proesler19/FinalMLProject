@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: MLproject_hotel_booking
+  description: >-
+    A simple model to get tell whether or not someone will cancel a hotel booking or not
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    name: REST Logistic Regression - Hotel Bookings
+  license:
+    name: Apache
+#adding confusion matrix
+paths:
+  /prediction/{id}: 
+    get:
+      tags: 
+      operationId: logreg.predict 
+      description: returns the prediciton
+      responses:
+      "200":
+      parameters:
+        - in: path 
+          name: id 
+          required: true 
+          schema:
+            type: array
+#adding accuracy score
+  /accuracy: 
+    get:
+      tags:
+      operation: accuracy_score
+      description: returns the accuracy score 
+      parameters:
+        - in: path 
+          name: accuracy 
+          required: true
+          schema: 
+            type: integer
+servers:
+  - url: 'http://localhost:8080/engr-222'
+  
