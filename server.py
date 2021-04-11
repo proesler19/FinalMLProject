@@ -5,7 +5,7 @@ from joblib import load
 
 #load the model
 
-my_model = load('svc_model.pkl')
+#hotel_booking = load('booking.pkl')
 
 # Create the application instance
 app = connexion.App(__name__, specification_dir="./")

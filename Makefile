@@ -6,6 +6,9 @@ all: start
 docker-all: docker-build docker-start
 	@echo "DONE"
 
+docker-alli: docker-build docker-inter
+	@echo "DONE"
+
 docker-build:
 	@echo "building the image from docker file..."
 	docker build --pull -t predict_demo .
@@ -17,7 +20,7 @@ docker-start:
 	
 docker-inter:
 	@echo "starting the NEW service in container interactively..."
-	docker run  -p 8080:8080 -it predict_demo
+	docker run  -p 8080:8080 -v /Users/paulroesler/github/222/FinalMLProject:/package -it predict_demo
 
 service:
 	@echo "creating the service..."
